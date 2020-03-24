@@ -17,6 +17,6 @@ This action performs unit tests for Octave/Matlab using [MOxUnit](https://github
 ```
 uses: joergbrech/moxunit-action@master
 with:
-  test_directory: 'tests'
-  src_directory: 'src'
+  test_directory: tests
+  src_directory: src
 ```

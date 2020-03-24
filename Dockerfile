@@ -1,7 +1,7 @@
 # Container image that runs your code
 FROM mtmiller/octave
 
-RUN git clone https://github.com/MOxUnit/MOxUnit.git && cd MOxUnit && make install
+RUN git clone https://github.com/MOxUnit/MOxUnit.git /home/MOxUnit
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
