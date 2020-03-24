@@ -1,0 +1,13 @@
+name: Test
+on: push
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Set up Git repository
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        test_directory: tests
+        src_directory: tests
