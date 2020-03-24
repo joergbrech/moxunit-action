@@ -1,0 +1,17 @@
+# action.yml
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  test_directory:  # id of input
+    description: 'directory containing the MOxUnit test cases'
+    required: true
+    default: '.'
+  src_directory:
+    description: 'directory of the source code'
+    default: '.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.test_directory }}
+    - ${{ inputs.src_directory }}
