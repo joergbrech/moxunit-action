@@ -1,8 +1,7 @@
 #!/bin/sh -l
 
-
-SRC_DIRECTORY=$1
-TST_DIRECTORY=$2
+TST_DIRECTORY=$1
+SRC_DIRECTORY=$2
 
 RUNTESTS_ARGS="\"$TST_DIRECTORY\", '-verbose'"
 TEST_RUNNER=moxunit_runtests
