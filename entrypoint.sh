@@ -11,9 +11,6 @@ EXPRESSION="$EXPRESSION addpath(\"$SRC_DIRECTORY\");"
 EXPRESSION="$EXPRESSION moxunit_set_path();"
 EXPRESSION="$EXPRESSION exit(~$TEST_RUNNER($RUNTESTS_ARGS));"
 
-
-echo $EXPRESSION
-
 octave --no-gui --eval "$EXPRESSION"
 if [ $? -eq 0 ] ; then
   echo "Unit tests succeeded."
