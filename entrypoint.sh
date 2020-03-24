@@ -1,8 +1,21 @@
 #!/bin/sh -l
 
-expr="addpath(\"$2\");exit(moxunit_runtests(\"$1\"));"
 
-octave --no-gui --eval $expr
+SRC_DIRECTORY=$1
+TST_DIRECTORY=$2
+
+RUNTESTS_ARGS="\"$TST_DIRECTORY\", '-verbose'"
+TEST_RUNNER=moxunit_runtests
+
+EXPRESSION="addpath(\"/home/MOxUnit/MOxUnit\");"
+EXPRESSION="$EXPRESSION addpath(\"$SRC_DIRECTORY\");"
+EXPRESSION="$EXPRESSION moxunit_set_path();"
+EXPRESSION="$EXPRESSION exit(~$TEST_RUNNER($RUNTESTS_ARGS));"
+
+
+echo $EXPRESSION
+
+octave --no-gui --eval "$EXPRESSION"
 if [ $? -eq 0 ] ; then
   echo "Unit tests succeeded."
 else
