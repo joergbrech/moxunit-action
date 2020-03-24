@@ -1,8 +1,8 @@
 # action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'MOxUnit Action'
+description: 'Run unittests for Matlab/Octave using MOxUnit'
 inputs:
-  test_directory:  # id of input
+  test_directory:
     description: 'directory containing the MOxUnit test cases'
     required: true
     default: '.'
