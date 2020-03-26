@@ -2,16 +2,32 @@
 name: 'MOxUnit Action'
 description: 'Run unittests for Matlab/Octave using MOxUnit'
 inputs:
-  test_directory:
+  tests:
     description: 'directory containing the MOxUnit test cases'
-    required: true
-    default: '.'
-  src_directory:
+  src:
     description: 'directory of the source code'
-    default: '.'
+  log_file:
+    description: 'store the output in file output'
+  doc_tests:
+    description: 'run documentation tests with MOdoc'
+  with_coverage:
+    description: 'set to true to record coverage using MOCov'
+  cover_xml_file:
+    description: 'store coverage XML output in file'
+  cover_html_dir:
+    description: 'store coverage HTML output in directory'
+  cover_junix_xml_file:
+    description: 'store test results in junit XML file'
+  
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.test_directory }}
-    - ${{ inputs.src_directory }}
+    - ${{ inputs.tests }}
+    - ${{ inputs.src }}
+    - ${{ inputs.log_file }}
+    - ${{ inputs.doc_tests }}
+    - ${{ inputs.with_coverage }}
+    - ${{ inputs.cover_xml_file }}
+    - ${{ inputs.cover_html_dir }}
+    - ${{ inputs.cover_junix_xml_file }}
