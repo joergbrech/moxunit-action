@@ -68,3 +68,17 @@ jobs:
       with:
         name: coverage_file
         path: coverage.xml
+  test-cover-html-dir:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        src: tests
+        cover_html_dir: htmlcov
+    - uses: actions/upload-artifact@v1
+      with:
+        name: coverage_html
+        path: htmlcov
