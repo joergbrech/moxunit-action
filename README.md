@@ -6,19 +6,23 @@ This action performs unit tests for GNU Octave and Matlab using the unit testing
 
 In the simplest case
 ```
-uses: joergbrech/moxunit-action@master
+steps:
+ - uses: actions/checkout@v2
+ - uses: joergbrech/moxunit-action@master
 ```
 
 runs all MOxUnit test cases found in this repository. A more complex use case could look like this:
 
 ```
-uses: joergbrech/moxunit-action@master
-with:
-  tests: tests my_extra_testfile.m
-  src: src thirdparty util
-  with_coverage: true
-  doc_tests: true
-  cover_xml_file: coverage.xml
+steps:
+- uses: actions/checkout@v2
+- uses: joergbrech/moxunit-action@master
+  with:
+    tests: tests my_extra_testfile.m
+    src: src thirdparty util
+    with_coverage: true
+    doc_tests: true
+    cover_xml_file: coverage.xml
 
 ```
 

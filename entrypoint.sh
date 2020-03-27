@@ -81,6 +81,11 @@ if   [ "$WITH_COVERAGE" = "true" ] \
   if  ! [ -z $COVER_JUNIT_XML_FILE ] ; then
     RUNTESTS_ARGS="$RUNTESTS_ARGS, '-junit_xml_file','$PWD/$COVER_JUNIT_XML_FILE'"
   fi
+
+  # write to json file
+  if ! [ -z $COVER_JSON_FILE ] ; then
+    RUNTESTS_ARGS="$RUNTESTS_ARGS, '-cover_json_file','$PWD/$COVER_JSON_FILE'"
+  fi
 fi
 
 # Run the tests

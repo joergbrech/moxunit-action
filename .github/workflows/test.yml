@@ -96,3 +96,17 @@ jobs:
       with:
         name: junit_file
         path: coverage.junit.xml
+  test-cover-json-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        src: tests/src
+        cover_json_file: coverage.json
+    - uses: actions/upload-artifact@v1
+      with:
+        name: coverage_json
+        path: coverage.json
