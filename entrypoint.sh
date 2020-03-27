@@ -20,7 +20,7 @@ SETUP="$SETUP addpath(\"/home/MOcov/MOcov\");"
 SETUP="$SETUP moxunit_set_path();"
 
 # add src directories to the path
-if ! [ -z $SRC] ; then
+if ! [ -z $SRC ] ; then
   SRC_DIRS=""
   for dir in $SRC
   do 
