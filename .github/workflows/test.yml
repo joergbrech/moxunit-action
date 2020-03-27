@@ -1,13 +1,119 @@
 name: Test
 on: push
 jobs:
-  unit-tests:
+  test-with-tests-arg:
     runs-on: ubuntu-latest
     steps:
-    - name: Set up Git repository
+    - name: Checkout repo
       uses: actions/checkout@v2
     - name: Run unit tests
       uses: ./
       with:
-        test_directory: tests
-        src_directory: tests
+        tests: tests
+        src: tests/src
+  test-without-tests-arg:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        src: tests/src
+  test-with-logfile:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        src: tests/src
+        log_file: log.txt
+    - uses: actions/upload-artifact@v1
+      with:
+        name: log_file
+        path: log.txt
+  test-documentation-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        src: tests/src
+        doc_tests: true
+  test-with-coverage:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        src: tests/src
+        with_coverage: true
+  test-cover-xml-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        src: tests/src
+        cover_xml_file: coverage.xml
+    - uses: actions/upload-artifact@v1
+      with:
+        name: coverage_file
+        path: coverage.xml
+    - uses: codecov/codecov-action@v1
+      with:
+        file: ./coverage.xml
+  test-cover-html-dir:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        src: tests/src
+        cover_html_dir: htmlcov
+    - uses: actions/upload-artifact@v1
+      with:
+        name: coverage_html
+        path: htmlcov
+  test-cover-junit-xml-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        src: tests/src
+        cover_junit_xml_file: coverage.junit.xml
+    - uses: actions/upload-artifact@v1
+      with:
+        name: junit_file
+        path: coverage.junit.xml
+  test-cover-json-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        src: tests/src
+        cover_json_file: coverage.json
+    - uses: actions/upload-artifact@v1
+      with:
+        name: coverage_json
+        path: coverage.json
+    #- uses: coverallsapp/github-action@master
+    #  with:
+    #    github-token: ${{ secrets.COVERALLS_TOKEN }}
+    #    path-to-lcov: coverage.json
