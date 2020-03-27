@@ -21,17 +21,15 @@ SETUP="$SETUP moxunit_set_path();"
 
 # add src directories to the path
 if ! [ -z $SRC] ; then
-  DIRS=""
+  SRC_DIRS=""
   for dir in $SRC
   do 
-    DIRS="$DIRS'$PWD/$dir',"
+    SRC_DIRS="$SRC_DIRS'$PWD/$dir',"
   done
   # remove trailing comma
-  DIRS=${DIRS%?}
-  SETUP="$SETUP addpath($DIRS);"
+  SRC_DIRS=${SRC_DIRS%?}
 fi
-
-TEST_RUNNER=moxunit_runtests
+SETUP="$SETUP addpath($SRC_DIRS);"
 
 # prepare test case argument
 if [ -z $TESTS ] ; then
@@ -53,14 +51,27 @@ if ! [ -z $LOG_FILE ] ; then
 fi
 
 # Run the tests
-COMMAND="exit(~$TEST_RUNNER($RUNTESTS_ARGS));"
+COMMAND="exit(~moxunit_runtests($RUNTESTS_ARGS));"
 
 # For debugging. Should be deleted in release
 echo "Command: $COMMAND"
 echo "Setup: $SETUP"
 
 octave --no-gui --eval "$SETUP $COMMAND"
-if [ $? -eq 0 ] ; then
+RESULT=$?
+
+# Run documentation tests
+if ! [ -z $DOC_TESTS ] && [ "$DOC_TESTS" = "true" ] ; then
+  
+  if [ -z $SRC_DIRS] ; then
+    SRC_DIRS="'.'"
+  fi
+  COMMAND="exit(~modox_runtests($SRC_DIRS));"
+  octave --no-gui --eval "$SETUP $COMMAND"
+  RESULT=$(($RESULT + $?))
+fi
+
+if [ $RESULT -eq 0 ] ; then
   echo "Unit tests succeeded."
 else
   echo "Unit tests failed!"

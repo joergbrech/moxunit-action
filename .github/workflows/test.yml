@@ -34,3 +34,13 @@ jobs:
       with:
         name: log_file
         path: log.txt
+  test-documentation-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        src: tests
+        doc_tests: true

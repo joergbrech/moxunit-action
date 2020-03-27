@@ -1,5 +1,10 @@
 function m = fac(n)
 % returns the factorial of n
+% 
+% Example:
+%   fac(6)
+%   %|| 720
+%
 
 if n<0
    error("Input n must be nonnegative."); 
