@@ -110,3 +110,7 @@ jobs:
       with:
         name: coverage_json
         path: coverage.json
+    - uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.COVERALLS_TOKEN }}
+        path-to-lcov: coverage.json
