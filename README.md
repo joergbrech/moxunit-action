@@ -1,6 +1,12 @@
 # MOxUnit action
 
-This action performs unit tests for GNU Octave and Matlab using the unit testing framework [MOxUnit](https://github.com/MOxUnit/MOxUnit/blob/master/Makefile).
+
+
+![Test](https://github.com/joergbrech/moxunit-action/workflows/Test/badge.svg) [![codecov](https://codecov.io/gh/joergbrech/moxunit-action/branch/master/graph/badge.svg)](https://codecov.io/gh/joergbrech/moxunit-action)
+
+
+
+This action performs unit tests for GNU Octave and Matlab using the unit testing framework [MOxUnit](https://github.com/MOxUnit/MOxUnit/blob/master/Makefile). Documentation tests and coverage reports are supported via [MOdox](https://github.com/MOdox/MOdox) and [MOCov](https://github.com/MOcov/MOcov)
 
 ## Usage
 
@@ -23,6 +29,9 @@ steps:
     with_coverage: true
     doc_tests: true
     cover_xml_file: coverage.xml
+- uses: codecov/codecov-action@v1
+  with:
+    file: ./coverage.xml
 
 ```
 
