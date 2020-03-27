@@ -21,11 +21,13 @@ SETUP="$SETUP moxunit_set_path();"
 
 # add src directories to the path
 if ! [ -z $SRC] ; then
-  DIRS="'.'"
+  DIRS=""
   for dir in $SRC
   do 
-    DIRS="$DIRS, '$dir'"
+    DIRS="$DIRS'$PWD/$dir',"
   done
+  # remove trailing comma
+  DIRS=${DIRS%?}
   SETUP="$SETUP addpath($DIRS);"
 fi
 
@@ -35,13 +37,20 @@ TEST_RUNNER=moxunit_runtests
 if [ -z $TESTS ] ; then
   TEST_CASES="'.'"
 else
-  TEST_CASES="'.'"
+  TEST_CASES=""
   for dir in $TESTS
   do
-    TEST_CASES="$TEST_CASES, '$dir'"
+    TEST_CASES="$TEST_CASES'$PWD/$dir',"
   done
+  # remove trailing comma
+  TEST_CASES=${TEST_CASES%?}
 fi
 RUNTESTS_ARGS="$TEST_CASES, '-verbose', '-recursive'"
+
+# write to log file
+if ! [ -z $LOG_FILE ] ; then
+  RUNTESTS_ARGS="$RUNTESTS_ARGS, '-logfile', '$PWD/$LOG_FILE'"
+fi
 
 # Run the tests
 COMMAND="exit(~$TEST_RUNNER($RUNTESTS_ARGS));"
