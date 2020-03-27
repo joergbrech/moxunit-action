@@ -33,4 +33,5 @@ with:
 | `with_coverage` | set to `true` to record coverage using [MOCov](https://github.com/MOcov/MOcov) | *Optional* |
 | `cover_xml_file` | store coverage XML output in file | *Optional* |
 | `cover_html_dir` | store coverage HTML output in directory | *Optional* |
-| `cover_junix_xml_file` | store test results in junit XML file | *Optional* |
+| `cover_junit_xml_file` | store test results in junit XML file | *Optional* |
+| `cover_json_file` | store coverage report in json file for  processing by coveralls.io | *Optional* |

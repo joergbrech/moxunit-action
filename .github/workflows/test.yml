@@ -82,3 +82,17 @@ jobs:
       with:
         name: coverage_html
         path: htmlcov
+  test-cover-junit-xml-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        src: tests/src
+        cover_junit_xml_file: coverage.junit.xml
+    - uses: actions/upload-artifact@v1
+      with:
+        name: junit_file
+        path: coverage.junit.xml

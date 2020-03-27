@@ -16,8 +16,10 @@ inputs:
     description: 'store coverage XML output in file'
   cover_html_dir:
     description: 'store coverage HTML output in directory'
-  cover_junix_xml_file:
+  cover_junit_xml_file:
     description: 'store test results in junit XML file'
+  cover_json_file:
+    description: 'store coverage report in json file for  processing by coveralls.io'
   
 runs:
   using: 'docker'
@@ -30,4 +32,5 @@ runs:
     - ${{ inputs.with_coverage }}
     - ${{ inputs.cover_xml_file }}
     - ${{ inputs.cover_html_dir }}
-    - ${{ inputs.cover_junix_xml_file }}
+    - ${{ inputs.cover_junit_xml_file }}
+    - ${{ inputs.cover_json_file }}

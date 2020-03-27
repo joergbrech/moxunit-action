@@ -8,7 +8,8 @@ DOC_TESTS=$4
 WITH_COVERAGE=$5
 COVER_XML_FILE=$6
 COVER_HTML_DIR=$7
-COVER_JUNIX_FILE=$8
+COVER_JUNIT_XML_FILE=$8
+COVER_JSON_FILE=$9
 
 # Create an Octave expression to set up the environment
 SETUP=""
@@ -61,7 +62,8 @@ fi
 if   [ "$WITH_COVERAGE" = "true" ] \
   || ! [ -z $COVER_XML_FILE ] \
   || ! [ -z $COVER_HTML_DIR ] \
-  || ! [ -z $COVER_JUNIX_FILE ] ; then
+  || ! [ -z $COVER_JUNIT_XML_FILE ] \
+  || ! [ -z $COVER_JSON_FILE ] ; then
   RUNTESTS_ARGS="$RUNTESTS_ARGS, '-with_coverage', '-cover', $SRC_DIRS"
 
   # write to xml file
@@ -73,6 +75,11 @@ if   [ "$WITH_COVERAGE" = "true" ] \
   if  ! [ -z $COVER_HTML_DIR ] ; then
     mkdir -p $COVER_HTML_DIR
     RUNTESTS_ARGS="$RUNTESTS_ARGS, '-cover_html_dir','$PWD/$COVER_HTML_DIR'"
+  fi
+
+  # write to junix file
+  if  ! [ -z $COVER_JUNIT_XML_FILE ] ; then
+    RUNTESTS_ARGS="$RUNTESTS_ARGS, '-junit_xml_file','$PWD/$COVER_JUNIT_XML_FILE'"
   fi
 fi
 
