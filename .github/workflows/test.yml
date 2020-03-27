@@ -44,3 +44,13 @@ jobs:
       with:
         src: tests
         doc_tests: true
+  test-with-coverage:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        src: tests
+        with_coverage: true

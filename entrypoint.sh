@@ -28,8 +28,15 @@ if ! [ -z $SRC] ; then
   done
   # remove trailing comma
   SRC_DIRS=${SRC_DIRS%?}
+  SETUP="$SETUP addpath($SRC_DIRS);"
+else
+  # This is used for coverage and documentation tests
+  SRC_DIRS="'.'"
 fi
-SETUP="$SETUP addpath($SRC_DIRS);"
+
+###########################
+# Run unit tests #
+###########################
 
 # prepare test case argument
 if [ -z $TESTS ] ; then
@@ -50,6 +57,14 @@ if ! [ -z $LOG_FILE ] ; then
   RUNTESTS_ARGS="$RUNTESTS_ARGS, '-logfile', '$PWD/$LOG_FILE'"
 fi
 
+# with code coverage 
+if   [ "$WITH_COVERAGE" = "true" ] \
+  || ! [ -z $COVER_XML_FILE ] \
+  || ! [ -z $COVER_HTML_FILE ] \
+  || ! [ -z $COVER_JUNIX_FILE ] ; then
+  RUNTESTS_ARGS="$RUNTESTS_ARGS, '-with_coverage', '-cover', $SRC_DIRS"
+fi
+
 # Run the tests
 COMMAND="exit(~moxunit_runtests($RUNTESTS_ARGS));"
 
@@ -60,12 +75,10 @@ echo "Setup: $SETUP"
 octave --no-gui --eval "$SETUP $COMMAND"
 RESULT=$?
 
-# Run documentation tests
-if ! [ -z $DOC_TESTS ] && [ "$DOC_TESTS" = "true" ] ; then
-  
-  if [ -z $SRC_DIRS] ; then
-    SRC_DIRS="'.'"
-  fi
+###########################
+# Run documentation tests #
+###########################
+if [ "$DOC_TESTS" = "true" ] ; then
   COMMAND="exit(~modox_runtests($SRC_DIRS));"
   octave --no-gui --eval "$SETUP $COMMAND"
   RESULT=$(($RESULT + $?))

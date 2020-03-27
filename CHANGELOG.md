@@ -4,7 +4,8 @@
  - Add support for several src directories
  - Add support for several test directories
  - recurse into subdirectories by default
- - Add support for documentation tests with MoDox
+ - Add support for documentation tests with Modox
+ - Add support for code coverage with MOcov
 
 # v1.0
 ## 2020/03/25
