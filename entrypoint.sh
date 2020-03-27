@@ -63,6 +63,9 @@ if   [ "$WITH_COVERAGE" = "true" ] \
   || ! [ -z $COVER_HTML_FILE ] \
   || ! [ -z $COVER_JUNIX_FILE ] ; then
   RUNTESTS_ARGS="$RUNTESTS_ARGS, '-with_coverage', '-cover', $SRC_DIRS"
+  if  ! [ -z $COVER_XML_FILE ] ; then
+    RUNTESTS_ARGS="$RUNTESTS_ARGS, '-cover_xml_file','$PWD/$COVER_XML_FILE'"
+  fi
 fi
 
 # Run the tests
