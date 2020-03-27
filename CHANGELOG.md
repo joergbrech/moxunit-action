@@ -1,3 +1,6 @@
+# v1.1
+## 2020/03/27
+
  - Rename argument `test_directory` to `tests` **breaks backward compatibility!**
  - Rename argument `src_directory` to `src` **breaks backward compatibility!**
  - Add support for writing to a logfile
@@ -8,6 +11,6 @@
  - Add support for code coverage and coverage reports with MOcov
 
 # v1
-## 2020/03/25
+## 2020/03/24
 
 Initial release
