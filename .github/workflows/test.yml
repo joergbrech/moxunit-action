@@ -113,6 +113,8 @@ jobs:
       with:
         name: coverage_json
         path: coverage.json
+    - name: upload to coveralls
+      run: curl --verbose -F json_file=$PWD/coverage.json https://coveralls.io/api/v1/jobs
     #- uses: coverallsapp/github-action@master
     #  with:
     #    github-token: ${{ secrets.COVERALLS_TOKEN }}
