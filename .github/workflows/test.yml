@@ -114,4 +114,6 @@ jobs:
         name: coverage_json
         path: coverage.json
     - name: upload to coveralls
+      env: 
+        COVERALLS_REPO_TOKEN: Nb3hQFAEnSRVBAIE7Dxkg260qDqJwLSeL
       run: curl --verbose -F json_file=@`pwd`/coverage.json https://coveralls.io/api/v1/jobs
