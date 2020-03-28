@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/joergbrech/moxunit-action/branch/master/graph/badge.svg)](https://codecov.io/gh/joergbrech/moxunit-action) 
 
 
-This action performs unit tests for GNU Octave and Matlab using the unit testing framework [MOxUnit](https://github.com/MOxUnit/MOxUnit/blob/master/Makefile). Documentation tests and coverage reports are supported via [MOdox](https://github.com/MOdox/MOdox) and [MOCov](https://github.com/MOcov/MOcov).
+This action performs unit tests for GNU Octave and Matlab using the unit testing framework [MOxUnit](https://github.com/MOxUnit/MOxUnit). Documentation tests and coverage reports are supported via [MOdox](https://github.com/MOdox/MOdox) and [MOCov](https://github.com/MOcov/MOcov).
 
 ## Usage
 
