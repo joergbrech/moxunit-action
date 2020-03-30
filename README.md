@@ -40,7 +40,7 @@ steps:
 | Input | Description | Usage |
 | - | - | - |
 | `tests` | files or directories containing the MOxUnit test cases | *Optional*, defaults to the root directory of the repo. All subdirectories are added recursively. |
-| `src` | directories to be added to the Octave search path before running the tests | *Optional*
+| `src` | directories to be added to the Octave search path before running the tests. These directories will be considered in the coverage reports, if coverage is enabled. | *Optional*
 | `log_file` | store the output in file output | *Optional* |
 | `doc_tests` | set to `true` to run documentation tests with [MOdox](https://github.com/MOdox/MOdox) | *Optional* |
 | `with_coverage` | set to `true` to record coverage using [MOCov](https://github.com/MOcov/MOcov) | *Optional* |
