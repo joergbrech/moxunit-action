@@ -91,9 +91,10 @@ fi
 # Run the tests
 COMMAND="exit(~moxunit_runtests($RUNTESTS_ARGS));"
 
-# For debugging. Should be deleted in release
-echo "Command: $COMMAND"
-echo "Setup: $SETUP"
+# Print Info
+echo "RUNNING UNIT TESTS"
+echo "SETUP: $SETUP"
+echo "COMMAND: $COMMAND"
 
 octave --no-gui --eval "$SETUP $COMMAND"
 RESULT=$?
@@ -103,6 +104,12 @@ RESULT=$?
 ###########################
 if [ "$DOC_TESTS" = "true" ] ; then
   COMMAND="exit(~modox_runtests($SRC_DIRS));"
+  
+  # Print Info
+  echo "RUNNING DOCUMENTATION TESTS"
+  echo "SETUP: $SETUP"
+  echo "COMMAND: $COMMAND"
+  
   octave --no-gui --eval "$SETUP $COMMAND"
   RESULT=$(($RESULT + $?))
 fi
