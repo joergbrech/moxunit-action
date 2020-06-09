@@ -10,6 +10,7 @@ COVER_XML_FILE=$6
 COVER_HTML_DIR=$7
 COVER_JUNIT_XML_FILE=$8
 COVER_JSON_FILE=$9
+DATA=$10
 
 # Create an Octave expression to set up the environment
 SETUP=""
@@ -33,6 +34,14 @@ if ! [ -z $SRC ] ; then
 else
   # This is used for coverage and documentation tests
   SRC_DIRS="'.'"
+fi
+
+if [ -z $DATA ] ; then
+  DATA=""
+else
+   SETUP="$SETUP addpath($DATA);"
+   echo "TEST DATA DIR: $DATA"
+   ls $DATA
 fi
 
 ###########################
@@ -115,7 +124,7 @@ if [ "$DOC_TESTS" = "true" ] ; then
 fi
 
 if [ $RESULT -eq 0 ] ; then
-  echo "Unit tests succeeded."
+  echo "Unit tests succeeded. YEEEEY!"
 else
   echo "Unit tests failed!"
   exit 1
