@@ -21,6 +21,7 @@ SETUP=""
 SETUP="$SETUP addpath(\"/home/MOxUnit/MOxUnit\");"
 SETUP="$SETUP addpath(\"/home/MOdox/MOdox\");"
 SETUP="$SETUP addpath(\"/home/MOcov/MOcov\");"
+SETUP="$SETUP setenv(\"PLATFORM\",\"GITHUB_ACTIONS\");"
 SETUP="$SETUP moxunit_set_path();"
 
 # add src directories to the path
