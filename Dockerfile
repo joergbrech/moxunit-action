@@ -1,5 +1,5 @@
 # It comes with packages installed Octave 4.2.2
-FROM kuzudeneme/octave:latest 
+FROM qmrlab/octaveci:v4.2.2
 
 RUN git clone https://github.com/MOxUnit/MOxUnit.git /home/MOxUnit; \
     git clone https://github.com/MOdox/MOdox.git /home/MOdox; \
