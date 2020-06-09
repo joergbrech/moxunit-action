@@ -4,6 +4,7 @@ FROM mtmiller/octave:5.1.0
 RUN git clone https://github.com/MOxUnit/MOxUnit.git /home/MOxUnit; \
     git clone https://github.com/MOdox/MOdox.git /home/MOdox; \
     git clone https://github.com/MOcov/MOcov.git /home/MOcov; \
+    apt-get update && \
     apt-get install -y --no-install-recommends \
         octave-info \
         octave-parallel \
