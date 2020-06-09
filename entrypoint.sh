@@ -11,6 +11,7 @@ COVER_HTML_DIR=$7
 COVER_JUNIT_XML_FILE=$8
 COVER_JSON_FILE=$9
 DATA=$10
+PKG=$11
 
 # Create an Octave expression to set up the environment
 SETUP=""
@@ -42,6 +43,19 @@ else
    SETUP="$SETUP addpath(\"$PWD/$DATA\"); pkg list;"
    echo "TEST DATA DIR: $PWD/$DATA"
    ls $PWD/$DATA
+fi
+
+# Load Octave packages 
+if [ -z $PKG ] ; then
+  DATA=""
+else
+  PKG_LIST=""
+  for pkg_name in $PKG
+  do 
+    PKG_LIST="$PKG_LIST pkg load pkg_name;"
+  done
+
+  SETUP="$SETUP $PKG_LIST"
 fi
 
 ###########################
