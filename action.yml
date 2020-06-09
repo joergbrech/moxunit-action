@@ -24,6 +24,9 @@ inputs:
     description: 'directory containing the test data' 
   pkg:
     description: 'List of Octave packages to load (image, io, optim, parallel, statistics, struct)'   
+  ext:
+    description: 'Other directories e.g. external dependencies'
+    
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -39,6 +42,7 @@ runs:
     - ${{ inputs.cover_json_file }}
     - ${{ inputs.data }}
     - ${{ inputs.pkg }}
+    - ${{ inputs.ext }}
 
 branding:
   icon: check-circle
