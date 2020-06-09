@@ -38,28 +38,19 @@ else
   SRC_DIRS="'.'"
 fi
 
-if ! [ -z $EXT ] ; then
-  EXT_DIRS=""
-  for ext in $EXT
-  do 
-    SRC_DIRS="$EXT_DIRS'$PWD/$ext',"
-  done
-  # remove trailing comma
-  EXT_DIRS=${EXT_DIRS%?}
-  SETUP="$SETUP addpath($EXT_DIRS);"
-else
-  # This is used for coverage and documentation tests
-  SRC_DIRS="'.'"
-fi
-
-
 
 if [ -z $DATA ] ; then
   DATA=""
 else
-   SETUP="$SETUP addpath(\"$PWD/$DATA\"); pkg list;"
+   SETUP="$SETUP addpath(\"$PWD/$DATA\");"
    echo "TEST DATA DIR: $PWD/$DATA"
    ls $PWD/$DATA
+fi
+
+if [ -z $EXT ] ; then
+  EXT=""
+else
+   SETUP="$SETUP addpath(\"$PWD/$EXT\");"
 fi
 
 
@@ -73,7 +64,7 @@ else
     PKG_LIST="$PKG_LIST pkg load $pkg_name;"
   done
 
-  SETUP="$SETUP $PKG_LIST"
+  SETUP="$SETUP $PKG_LIST pkg list;"
 fi
 
 ###########################
