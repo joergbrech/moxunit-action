@@ -39,9 +39,9 @@ fi
 if [ -z $DATA ] ; then
   DATA=""
 else
-   SETUP="$SETUP addpath($DATA);"
-   echo "TEST DATA DIR: $DATA"
-   ls $DATA
+   SETUP="$SETUP addpath($PWD/$DATA);"
+   echo "TEST DATA DIR: $PWD/$DATA"
+   ls $PWD/$DATA
 fi
 
 ###########################
