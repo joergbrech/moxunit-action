@@ -39,7 +39,7 @@ fi
 if [ -z $DATA ] ; then
   DATA=""
 else
-   SETUP="$SETUP addpath('$PWD/$DATA');"
+   SETUP="$SETUP addpath(\"$PWD/$DATA\");"
    echo "TEST DATA DIR: $PWD/$DATA"
    ls $PWD/$DATA
    pkg list
