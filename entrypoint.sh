@@ -12,6 +12,7 @@ COVER_JUNIT_XML_FILE=$8
 COVER_JSON_FILE=$9
 DATA=$10
 PKG=$11
+EXT=$12
 
 # Create an Octave expression to set up the environment
 SETUP=""
@@ -37,6 +38,22 @@ else
   SRC_DIRS="'.'"
 fi
 
+if ! [ -z $EXT ] ; then
+  EXT_DIRS=""
+  for ext in $EXT
+  do 
+    SRC_DIRS="$EXT_DIRS'$PWD/$ext',"
+  done
+  # remove trailing comma
+  EXT_DIRS=${EXT_DIRS%?}
+  SETUP="$SETUP addpath($EXT_DIRS);"
+else
+  # This is used for coverage and documentation tests
+  SRC_DIRS="'.'"
+fi
+
+
+
 if [ -z $DATA ] ; then
   DATA=""
 else
@@ -44,6 +61,7 @@ else
    echo "TEST DATA DIR: $PWD/$DATA"
    ls $PWD/$DATA
 fi
+
 
 # Load Octave packages 
 if [ -z $PKG ] ; then
