@@ -52,7 +52,7 @@ else
   PKG_LIST=""
   for pkg_name in $PKG
   do 
-    PKG_LIST="$PKG_LIST pkg load pkg_name;"
+    PKG_LIST="$PKG_LIST pkg load $pkg_name;"
   done
 
   SETUP="$SETUP $PKG_LIST"
