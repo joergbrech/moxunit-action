@@ -8,6 +8,21 @@
 
 This action performs unit tests for GNU Octave and Matlab using the unit testing framework [MOxUnit](https://github.com/MOxUnit/MOxUnit). Documentation tests and coverage reports are supported via [MOdox](https://github.com/MOdox/MOdox) and [MOCov](https://github.com/MOcov/MOcov).
 
+## Container
+
+This action uses `qmarlab/octaveci:4.2.2` that contains following packages/versions:
+
+```
+Package Name  | Version | Installation directory
+--------------+---------+-----------------------
+       image  |   2.6.2 | /usr/share/octave/packages/image-2.6.2
+          io  |  2.4.10 | /usr/share/octave/packages/io-2.4.10
+       optim  |   1.5.2 | /usr/share/octave/packages/optim-1.5.2
+    parallel  |   3.1.1 | /usr/share/octave/packages/parallel-3.1.1
+  statistics  |   1.3.0 | /usr/share/octave/packages/statistics-1.3.0
+      struct  |  1.0.14 | /usr/share/octave/packages/struct-1.0.14
+```
+
 ## Usage
 
 In the simplest case
