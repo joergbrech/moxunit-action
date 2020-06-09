@@ -1,4 +1,5 @@
-FROM qmrlab/minimal:2.3.1
+# It comes with packages installed
+FROM qmrlab/minimal:v2.4.0
 
 RUN git clone https://github.com/MOxUnit/MOxUnit.git /home/MOxUnit; \
     git clone https://github.com/MOdox/MOdox.git /home/MOdox; \
