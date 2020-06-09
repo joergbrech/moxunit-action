@@ -4,6 +4,8 @@ description: 'Run unittests for Matlab/Octave using MOxUnit'
 inputs:
   tests:
     description: 'directory containing the MOxUnit test cases'
+  data:
+    description: 'directory containing the test data'    
   src:
     description: 'directory of the source code'
   log_file:
@@ -27,6 +29,7 @@ runs:
   args:
     - ${{ inputs.tests }}
     - ${{ inputs.src }}
+    - ${{ inputs.data }}
     - ${{ inputs.log_file }}
     - ${{ inputs.doc_tests }}
     - ${{ inputs.with_coverage }}
