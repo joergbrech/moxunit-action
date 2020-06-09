@@ -50,7 +50,7 @@ fi
 if [ -z $EXT ] ; then
   EXT=""
 else
-   SETUP="$SETUP addpath(\"$PWD/$EXT\");"
+   SETUP="$SETUP addpath(genpath(\"$PWD/$EXT\"));"
 fi
 
 
