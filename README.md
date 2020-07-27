@@ -49,6 +49,7 @@ steps:
     file: ./coverage.xml
 
 ```
+To use your test data along with Octave packages, you can see [this example configuration file](https://github.com/agahkarakuzu/eda_organized/blob/master/.github/workflows/moxunit.yml).
 
 ## Arguments
 
