@@ -23,9 +23,9 @@ inputs:
   data:
     description: 'directory containing the test data' 
   pkg:
-    description: 'List of Octave packages to load (image, io, optim, parallel, statistics, struct)'   
+    description: 'list of Octave packages to load (image, io, optim, parallel, statistics, struct)'   
   ext:
-    description: 'Other directories e.g. external dependencies'
+    description: 'other directories e.g. external dependencies'
     
 runs:
   using: 'docker'
