@@ -148,7 +148,7 @@ if [ "$DOC_TESTS" = "true" ] ; then
 fi
 
 if [ $RESULT -eq 0 ] ; then
-  echo "Unit tests succeeded. YEEEEY!"
+  echo "Unit tests succeeded."
 else
   echo "Unit tests failed!"
   exit 1
