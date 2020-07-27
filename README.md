@@ -8,6 +8,21 @@
 
 This action performs unit tests for GNU Octave and Matlab using the unit testing framework [MOxUnit](https://github.com/MOxUnit/MOxUnit). Documentation tests and coverage reports are supported via [MOdox](https://github.com/MOdox/MOdox) and [MOCov](https://github.com/MOcov/MOcov).
 
+## Container
+
+This action uses `qmarlab/octaveci:4.2.2` that contains following packages/versions:
+
+```
+Package Name  | Version | Installation directory
+--------------+---------+-----------------------
+       image  |   2.6.2 | /usr/share/octave/packages/image-2.6.2
+          io  |  2.4.10 | /usr/share/octave/packages/io-2.4.10
+       optim  |   1.5.2 | /usr/share/octave/packages/optim-1.5.2
+    parallel  |   3.1.1 | /usr/share/octave/packages/parallel-3.1.1
+  statistics  |   1.3.0 | /usr/share/octave/packages/statistics-1.3.0
+      struct  |  1.0.14 | /usr/share/octave/packages/struct-1.0.14
+```
+
 ## Usage
 
 In the simplest case
@@ -41,6 +56,9 @@ steps:
 | - | - | - |
 | `tests` | files or directories containing the MOxUnit test cases | *Optional*, defaults to the root directory of the repo. All subdirectories are added recursively. |
 | `src` | directories to be added to the Octave search path before running the tests. These directories will be considered in the coverage reports, if coverage is enabled. | *Optional*
+| `data` | Directory for test data | *Optional* |
+| `pkg` | Octave packages to load. Available options: `image` `io` `optim` `parallel` `statistics` `struct`| *Optional* |
+| `ext` | External resources to add to the search put (excluded from coverage)| *Optional* |
 | `log_file` | store the output in file output | *Optional* |
 | `doc_tests` | set to `true` to run documentation tests with [MOdox](https://github.com/MOdox/MOdox) | *Optional* |
 | `with_coverage` | set to `true` to record coverage using [MOCov](https://github.com/MOcov/MOcov) | *Optional* |

@@ -10,6 +10,9 @@ COVER_XML_FILE=$6
 COVER_HTML_DIR=$7
 COVER_JUNIT_XML_FILE=$8
 COVER_JSON_FILE=$9
+DATA=$10
+PKG=$11
+EXT=$12
 
 # Create an Octave expression to set up the environment
 SETUP=""
@@ -18,6 +21,7 @@ SETUP=""
 SETUP="$SETUP addpath(\"/home/MOxUnit/MOxUnit\");"
 SETUP="$SETUP addpath(\"/home/MOdox/MOdox\");"
 SETUP="$SETUP addpath(\"/home/MOcov/MOcov\");"
+SETUP="$SETUP setenv(\"PLATFORM\",\"GITHUB_ACTIONS\");"
 SETUP="$SETUP moxunit_set_path();"
 
 # add src directories to the path
@@ -33,6 +37,35 @@ if ! [ -z $SRC ] ; then
 else
   # This is used for coverage and documentation tests
   SRC_DIRS="'.'"
+fi
+
+
+if [ -z $DATA ] ; then
+  DATA=""
+else
+   SETUP="$SETUP addpath(\"$PWD/$DATA\");"
+   echo "TEST DATA DIR: $PWD/$DATA"
+   ls $PWD/$DATA
+fi
+
+if [ -z $EXT ] ; then
+  EXT=""
+else
+   SETUP="$SETUP addpath(genpath(\"$PWD/$EXT\"));"
+fi
+
+
+# Load Octave packages 
+if [ -z $PKG ] ; then
+  DATA=""
+else
+  PKG_LIST=""
+  for pkg_name in $PKG
+  do 
+    PKG_LIST="$PKG_LIST pkg load $pkg_name;"
+  done
+
+  SETUP="$SETUP $PKG_LIST pkg list;"
 fi
 
 ###########################

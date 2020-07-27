@@ -3,7 +3,7 @@ name: 'MOxUnit Action'
 description: 'Run unittests for Matlab/Octave using MOxUnit'
 inputs:
   tests:
-    description: 'directory containing the MOxUnit test cases'
+    description: 'directory containing the MOxUnit test cases'   
   src:
     description: 'directory of the source code'
   log_file:
@@ -20,7 +20,13 @@ inputs:
     description: 'store test results in junit XML file'
   cover_json_file:
     description: 'store coverage report in json file for  processing by coveralls.io'
-  
+  data:
+    description: 'directory containing the test data' 
+  pkg:
+    description: 'list of Octave packages to load (image, io, optim, parallel, statistics, struct)'   
+  ext:
+    description: 'other directories e.g. external dependencies'
+    
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -34,6 +40,9 @@ runs:
     - ${{ inputs.cover_html_dir }}
     - ${{ inputs.cover_junit_xml_file }}
     - ${{ inputs.cover_json_file }}
+    - ${{ inputs.data }}
+    - ${{ inputs.pkg }}
+    - ${{ inputs.ext }}
 
 branding:
   icon: check-circle
