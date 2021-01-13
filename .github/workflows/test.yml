@@ -20,6 +20,16 @@ jobs:
       uses: ./
       with:
         src: tests/src
+  test-with-ext-arg:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        src: tests/src
+        ext: tests/ext1 tests/ext2
   test-with-logfile:
     runs-on: ubuntu-latest
     steps:

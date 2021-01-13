@@ -39,6 +39,15 @@ else
   SRC_DIRS="'.'"
 fi
 
+# add external directories to the path
+if ! [ -z $EXT ] ; then
+  for dir in $EXT
+  do 
+    SETUP="$SETUP addpath(genpath('$PWD/$dir'));"
+  done
+else
+  EXT_DIRS=""
+fi
 
 if [ -z $DATA ] ; then
   DATA=""
@@ -47,13 +56,6 @@ else
    echo "TEST DATA DIR: $PWD/$DATA"
    ls $PWD/$DATA
 fi
-
-if [ -z $EXT ] ; then
-  EXT=""
-else
-   SETUP="$SETUP addpath(genpath(\"$PWD/$EXT\"));"
-fi
-
 
 # Load Octave packages 
 if [ -z $PKG ] ; then
