@@ -30,16 +30,10 @@ Package Name  | Version | Installation directory
  1. at your github repo click on the "Actions" button or go to https://github.com/[user]/[repo]/actions
  1. add a new workflow by clicking on "New workflow"
  1. click on  "set up a workflow yourself" to create you .yml configuration file
- 1. paste this: (where `mySimpleTest1.m` is a test script of function placed in your repo)
+ 1. paste this: (where `mySimpleTest1.m` is a function, with `assert` tests, located in your repo)
  ```
 name: moxunittest
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -47,9 +41,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: joergbrech/moxunit-action@v1
         with:
-          tests: mySimpleTest1.m
+          test_directory: mySimpleTest1.m
 ```
-  1. commit the change and go back to actions to check the build status.
+After doing the commit of the file creation you can see the result of the CI.
   
 ### CI-non-beginner user
 
