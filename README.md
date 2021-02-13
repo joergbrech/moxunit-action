@@ -45,9 +45,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: joergbrech/moxunit-action@v1.1
+      - uses: joergbrech/moxunit-action@v1
         with:
-          tests: mySimpleTest1.m ```
+          tests: mySimpleTest1.m
 ```
   1. commit the change and go back to actions to check the build status.
   
