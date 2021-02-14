@@ -1,5 +1,5 @@
 function test_suite=test_fac
-% initialize unit tets
+% initialize unit tests
     try
         test_functions=localfunctions();
     catch
