@@ -1,4 +1,4 @@
-#!/bin/bash -l
+#!/bin/sh -l
 
 # Read inputs
 TESTS=$1
