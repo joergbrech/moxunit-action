@@ -13,6 +13,21 @@ COVER_JSON_FILE=$9
 DATA=$10
 PKG=$11
 EXT=$12
+WDIR=$13
+
+####################
+# Switch directory #
+####################
+
+
+if [ -z $WDIR ] ; then
+  WDIR="."
+fi
+cd $WDIR
+
+###########################
+# Prepare Octave commands #
+###########################
 
 # Create an Octave expression to set up the environment
 SETUP=""
@@ -70,9 +85,9 @@ else
   SETUP="$SETUP $PKG_LIST pkg list;"
 fi
 
-###########################
+##################
 # Run unit tests #
-###########################
+##################
 
 # prepare test case argument
 if [ -z $TESTS ] ; then

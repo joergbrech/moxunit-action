@@ -20,6 +20,16 @@ jobs:
       uses: ./
       with:
         src: tests/src
+  test-with-working-directory:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Run unit tests
+      uses: ./
+      with:
+        working_directory: tests
+        src: src
   test-with-ext-arg:
     runs-on: ubuntu-latest
     steps:

@@ -26,6 +26,8 @@ inputs:
     description: 'list of Octave packages to load (image, io, optim, parallel, statistics, struct)'   
   ext:
     description: 'other directories e.g. external dependencies'
+  working_directory:
+    description: 'relative path to an optional working directory under the github workspace'
     
 runs:
   using: 'docker'
@@ -43,6 +45,7 @@ runs:
     - ${{ inputs.data }}
     - ${{ inputs.pkg }}
     - ${{ inputs.ext }}
+    - ${{ inputs.working_directory }}
 
 branding:
   icon: check-circle
