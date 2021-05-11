@@ -81,6 +81,8 @@ To use your test data along with Octave packages, you can see [this example conf
 
 ## Arguments
 
+All file and directory paths are interpreted as relative to the working directory, which defaults to the Github Workspace. Optionally, the working-directory can be changed with the argument `working_directory`, see below.
+
 | Input | Description | Usage |
 | - | - | - |
 | `tests` | files or directories containing the MOxUnit test cases | *Optional*, defaults to the root directory of the repo. All subdirectories are added recursively. |
@@ -95,3 +97,4 @@ To use your test data along with Octave packages, you can see [this example conf
 | `cover_html_dir` | store coverage HTML output in directory | *Optional* |
 | `cover_junit_xml_file` | store test results in junit XML file | *Optional* |
 | `cover_json_file` | store coverage report in json file for  processing by coveralls.io | *Optional* |
+| `working_directory` | relative path to a working directory under the github workspace, defaults to `.`. | *Optional* |
