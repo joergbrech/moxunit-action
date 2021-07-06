@@ -12,4 +12,4 @@ function test_suite=test_sum
 
 function test_sum_0
 % test if fac(0)==1
-    assertEqual(1+1,2);
+    assertEqual( mySum(1,1),2);

@@ -10,7 +10,7 @@ jobs:
       uses: ./
       with:
         tests: tests
-        src: tests/src
+        src: tests/src tests/srcB
   test-without-tests-arg:
     runs-on: ubuntu-latest
     steps:
@@ -19,7 +19,7 @@ jobs:
     - name: Run unit tests
       uses: ./
       with:
-        src: tests/src
+        src: tests/src tests/srcB
   test-with-working-directory:
     runs-on: ubuntu-latest
     steps:
@@ -29,7 +29,7 @@ jobs:
       uses: ./
       with:
         working_directory: tests
-        src: src
+        src: src srcB
   test-with-ext-arg:
     runs-on: ubuntu-latest
     steps:
@@ -38,7 +38,7 @@ jobs:
     - name: Run unit tests
       uses: ./
       with:
-        src: tests/src
+        src: tests/src tests/srcB
         ext: tests/ext1 tests/ext2
   test-with-logfile:
     runs-on: ubuntu-latest
@@ -48,7 +48,7 @@ jobs:
     - name: Run unit tests
       uses: ./
       with:
-        src: tests/src
+        src: tests/src tests/srcB
         log_file: log.txt
     - uses: actions/upload-artifact@v1
       with:
@@ -62,7 +62,7 @@ jobs:
     - name: Run unit tests
       uses: ./
       with:
-        src: tests/src
+        src: tests/src tests/srcB
         doc_tests: true
   test-with-coverage:
     runs-on: ubuntu-latest
@@ -72,7 +72,7 @@ jobs:
     - name: Run unit tests
       uses: ./
       with:
-        src: tests/src
+        src: tests/src tests/srcB
         with_coverage: true
   test-cover-xml-file:
     runs-on: ubuntu-latest
@@ -82,7 +82,7 @@ jobs:
     - name: Run unit tests
       uses: ./
       with:
-        src: tests/src
+        src: tests/src tests/srcB
         cover_xml_file: coverage.xml
     - uses: actions/upload-artifact@v1
       with:
@@ -113,7 +113,7 @@ jobs:
     - name: Run unit tests
       uses: ./
       with:
-        src: tests/src
+        src: tests/src tests/srcB
         cover_junit_xml_file: coverage.junit.xml
     - uses: actions/upload-artifact@v1
       with:
@@ -127,7 +127,7 @@ jobs:
     - name: Run unit tests
       uses: ./
       with:
-        src: tests/src
+        src: tests/src tests/srcB
         cover_json_file: coverage.json
     - uses: actions/upload-artifact@v1
       with:
