@@ -99,7 +99,7 @@ jobs:
     - name: Run unit tests
       uses: ./
       with:
-        src: tests/src
+        src: tests/src tests/srcB
         cover_html_dir: htmlcov
     - uses: actions/upload-artifact@v1
       with:
