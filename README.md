@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: joergbrech/moxunit-action@v1.2.0
+      - uses: joergbrech/moxunit-action@v1
         with:
           tests: mySimpleTest1.m
 ```
