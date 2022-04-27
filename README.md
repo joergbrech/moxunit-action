@@ -57,7 +57,7 @@ In the simplest case
 ```
 steps:
  - uses: actions/checkout@v2
- - uses: joergbrech/moxunit-action@master
+ - uses: joergbrech/moxunit-action@v1
 ```
 
 runs all MOxUnit test cases found in this repository. A more complex use case could look like this:
@@ -65,7 +65,7 @@ runs all MOxUnit test cases found in this repository. A more complex use case co
 ```
 steps:
 - uses: actions/checkout@v2
-- uses: joergbrech/moxunit-action@master
+ - uses: joergbrech/moxunit-action@v1
   with:
     tests: tests my_extra_testfile.m
     src: src thirdparty util
