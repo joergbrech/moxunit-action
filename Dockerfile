@@ -1,5 +1,4 @@
-# It comes with packages installed Octave 4.2.2
-#FROM gnuoctave/octave:latest    
+# It comes with Octave 5.3.0 and packages installed 
 FROM qmrlab/octaveci:latest    
     
 RUN git clone https://github.com/MOxUnit/MOxUnit.git /home/MOxUnit; \
