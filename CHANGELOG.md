@@ -1,3 +1,11 @@
+# v1.3
+## 2023/02/22
+
+Contributors: Contributors: [Remi-Gau](https://github.com/Remi-Gau), [jorgepz](https://github.com/jorgepz)
+
+ - Update documentation in Readme
+ - Update Dockerfile to use `qmrlab/octaveci:latest` based on Octave 5.2.0 [#12](https://github.com/joergbrech/moxunit-action/issues/12)
+
 # v1.2
 ## 2021/08/17
 
