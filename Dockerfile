@@ -1,6 +1,6 @@
-# It comes with packages installed Octave 4.2.2
-FROM qmrlab/octaveci:v4.2.2
-
+# It comes with Octave 5.2.0 and packages installed 
+FROM qmrlab/octaveci:latest    
+    
 RUN git clone https://github.com/MOxUnit/MOxUnit.git /home/MOxUnit; \
     git clone https://github.com/MOdox/MOdox.git /home/MOdox; \
     git clone https://github.com/MOcov/MOcov.git /home/MOcov 

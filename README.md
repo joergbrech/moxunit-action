@@ -10,17 +10,23 @@ This action performs unit tests for GNU Octave and Matlab using the unit testing
 
 ## Container
 
-This action uses `qmarlab/octaveci:4.2.2` that contains following packages/versions:
+This action uses the `qmrlab/octaveci:latest` docker image which contains GNU-Octave 5.2.0 and the following packages/versions:
 
 ```
-Package Name  | Version | Installation directory
---------------+---------+-----------------------
-       image  |   2.6.2 | /usr/share/octave/packages/image-2.6.2
-          io  |  2.4.10 | /usr/share/octave/packages/io-2.4.10
-       optim  |   1.5.2 | /usr/share/octave/packages/optim-1.5.2
-    parallel  |   3.1.1 | /usr/share/octave/packages/parallel-3.1.1
-  statistics  |   1.3.0 | /usr/share/octave/packages/statistics-1.3.0
-      struct  |  1.0.14 | /usr/share/octave/packages/struct-1.0.14
+Package Name    | Version | Installation directory
+----------------+---------+-----------------------
+       control  |   3.2.0 | /usr/share/octave/packages/control-3.2.0
+data-smoothing  |   1.3.0 | /usr/share/octave/packages/data-smoothing-1.3.0
+     dataframe  |   1.2.0 | /usr/share/octave/packages/dataframe-1.2.0
+         dicom  |   0.2.2 | /usr/share/octave/packages/dicom-0.2.2
+     financial  |   0.5.3 | /usr/share/octave/packages/financial-0.5.3
+         image  |  2.12.0 | /usr/share/octave/packages/image-2.12.0
+            io  |  2.4.13 | /usr/share/octave/packages/io-2.4.13
+         optim  |   1.6.0 | /usr/share/octave/packages/optim-1.6.0
+      parallel  |   3.1.3 | /usr/share/octave/packages/parallel-3.1.3
+    statistics  |   1.4.1 | /usr/share/octave/packages/statistics-1.4.1
+       strings  |   1.2.0 | /usr/share/octave/packages/strings-1.2.0
+        struct  |  1.0.16 | /usr/share/octave/packages/struct-1.0.16
 ```
 
 ## Usage
