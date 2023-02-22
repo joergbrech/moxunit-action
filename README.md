@@ -10,7 +10,7 @@ This action performs unit tests for GNU Octave and Matlab using the unit testing
 
 ## Container
 
-This action uses the `qmarlab/octaveci:latest` docker image which contains GNU-Octave 5.3.0 and the following packages/versions:
+This action uses the `qmrlab/octaveci:latest` docker image which contains GNU-Octave 5.2.0 and the following packages/versions:
 
 ```
 Package Name  | Version | Installation directory
