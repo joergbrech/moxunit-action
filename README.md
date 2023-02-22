@@ -1,7 +1,7 @@
 # MOxUnit action
 
 
-[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-v1.2-undefined.svg?logo=github&logoColor=white&style=flat)](https://github.com/marketplace/actions/moxunit-action)
+[![GitHub Marketplace](https://img.shields.io/badge/Marketplace-v1.3-undefined.svg?logo=github&logoColor=white&style=flat)](https://github.com/marketplace/actions/moxunit-action)
 ![Test](https://github.com/joergbrech/moxunit-action/workflows/Test/badge.svg) 
 [![codecov](https://codecov.io/gh/joergbrech/moxunit-action/branch/master/graph/badge.svg)](https://codecov.io/gh/joergbrech/moxunit-action) 
 
